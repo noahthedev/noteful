@@ -1,0 +1,14 @@
+.addNote {
+  color: #bdbdbd;
+  margin: 0;
+  padding: 10px;
+}
+
+textarea {
+  width: 175px;
+  height: 200px;
+}
+
+.addNote button {
+  margin: 10px;
+}
