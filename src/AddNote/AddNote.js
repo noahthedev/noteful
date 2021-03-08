@@ -110,7 +110,7 @@ export default class AddNote extends React.Component {
           id='note_folder'
           onChange={e => this.updateFolder(e.target.value)}
         >
-          <option value='none'>Select a Folder</option>
+          <option value=''>Select a Folder</option>
           {options}
         </select>
         <ValidationError message={this.validateFolder()}/>
