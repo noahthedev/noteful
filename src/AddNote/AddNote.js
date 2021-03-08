@@ -71,24 +71,32 @@ export default class AddNote extends React.Component {
     return (
       <form className="addNote" onSubmit={e => this.handleSubmit(e)}>
         <h2>Add Note</h2>
+        <label htmlFor='note_name' className='hidden'>note name</label>
         <input
           required
           autoFocus
+          id='note_name'
           type='text'
           placeholder='note name'
           onChange={e => this.updateName(e.target.value)}
         />
         <ValidationError message={this.validateName()}/>
         <br/>
+        <label htmlFor='note_content' className='hidden'>note content</label>
         <textarea
           required
+          id='note_content'
           type='text'
           placeholder='note content' 
           onChange={e => this.updateContent(e.target.value)}
         />
         <br/>
-        <select required onChange={e => this.updateFolder(e.target.value)}>
-          <option value='none'>Select one...</option>
+        <label htmlFor='note_folder' class='hidden'>Select a Folder</label>
+        <select
+          required
+          id='note_folder'
+          onChange={e => this.updateFolder(e.target.value)}
+        >
           {options}
         </select>
         <br/>
