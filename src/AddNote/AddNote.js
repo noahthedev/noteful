@@ -36,6 +36,18 @@ export default class AddNote extends React.Component {
     }
   }
 
+  validateContent = () => {
+    if (this.state.content.trim().length === 0) {
+      return 'content is required'
+    }
+  }
+
+  validateFolder = () => {
+    if (this.state.folder.trim() === 'none') {
+      return 'folder is required'
+    }
+  }
+
   handleSubmit = e => {
     e.preventDefault();
     const url = `${config.API_ENDPOINT}/notes`;
@@ -90,6 +102,7 @@ export default class AddNote extends React.Component {
           placeholder='note content' 
           onChange={e => this.updateContent(e.target.value)}
         />
+        <ValidationError message={this.validateContent()}/>
         <br/>
         <label htmlFor='note_folder' class='hidden'>Select a Folder</label>
         <select
@@ -97,8 +110,10 @@ export default class AddNote extends React.Component {
           id='note_folder'
           onChange={e => this.updateFolder(e.target.value)}
         >
+          <option value='none'>Select a Folder</option>
           {options}
         </select>
+        <ValidationError message={this.validateFolder()}/>
         <br/>
         <button type="submit">
           Save
